@@ -9,10 +9,10 @@ io.on('connection', function (socket) {
   console.log("headers at connection:")
   console.log(socket.handshake.headers)
   socket.on('audio', async function (msg) {
-      console.log("headers on evnt:")
+      console.log("\nheaders on event:")
       console.log(socket.handshake.headers)
       var date = new Date(msg.timeMillis);
-      await fs.promises.writeFile(path.join(__dirname, "videos", `${date.toString()}.wav`), msg.data, "binary");         
+      await fs.promises.writeFile(path.join(__dirname, "files", `${date.toString()}.wav`), msg.data, "binary");         
   });
 });
 
