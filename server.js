@@ -11,8 +11,8 @@ io.on('connection', function (socket) {
   socket.on('audio', async function (msg) {
       console.log("\nheaders on event:")
       console.log(socket.handshake.headers)
-      var date = new Date(msg.timeMillis);
-      await fs.promises.writeFile(path.join(__dirname, "files", `${date.toString()}.wav`), msg.data, "binary");         
+      console.log("timeMillis: "+msg.timeMillis)
+      await fs.promises.writeFile(path.join(__dirname, "files", `${msg.timeMillis}.wav`), msg.data, "binary");         
   });
 });
 
